@@ -1,0 +1,85 @@
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Selector de etiqueta */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: bolder;
+  color: #3b4754;
+}
+
+/*Para que no subraye los links*/
+a {
+  text-decoration: none;
+}
+
+.titulo1 {
+  font-size: 26px;
+  font-weight: bolder;
+  color: #3b4754;
+}
+
+.titulo2 {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #3b4754;
+}
+
+.textoimportante {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #798da3;
+}
+.textoimportante h1 {
+  font-size: 26px;
+  font-weight: bolder;
+  /*color: #3b4754;*/
+  color: blueviolet;
+}
+
+.textosimple {
+  font-size: 12px;
+  font-weight: bolder;
+  color: #3b4754;
+}
+
+.datoscontacto {
+  font-family: "Open Sans", sans-serif;
+  width: 800px;
+  background-color: aqua;
+}
+
+.piedepagina {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #3b4754;
+}
+
+.box {
+  display: inline-block;
+  height: 150px;
+  width: 800px;
+}
+
+.box2 {
+  display: inline-block;
+  height: 140px;
+  width: 400px;
+}
+
+.box3 {
+  text-align: center;
+  padding: 0px;
+  display: inline-block;
+  height: 140px;
+  width: 400px;
+}/*# sourceMappingURL=style.css.map */
