@@ -17,55 +17,55 @@
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <!-- custom styles -->
     <link rel="stylesheet" href="./css/style.css" />
-
     <title>Marc Woods</title>
     <link rel="icon" type="image/png" href="./media/favicon-32x32.png">
   </head>
 
 <body>
-<!--INICIO CONTAINER DE BOOTSTRAP -->
-
+  <header>
+        <!-- Menu de navegación -->
+        <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+          <div class="container">
+            <a class="navbar-brand" href="#">
+            <img src="./media/logomwfull.png" alt="Logo MW" height="40px" />
+          </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                 <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/nosotros.html">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/tablas.html">Tablas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/maderas.html">Maderas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/contacto.html">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+     
+        </nav>
+        <!-- fin menu de navegación-->
+  </header>
+  <!--INICIO CONTAINER DE BOOTSTRAP -->
 <main class="container">
-    <!-- Menu de navegación -->
-    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-        <img src="./media/logomwfull.png" alt="Logo MW" height="40px" />
-      </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pages/nosotros.html">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pages/tablas.html">Tablas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pages/maderas.html">Maderas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./pages/contacto.html">Contacto</a>
-            </li>
-          </ul>
-        </div>
-      </div>
- 
-    </nav>
-    <!-- fin menu de navegación-->
 <!-- acá arranca el contenido de la página, primera parte: el texto y la foto de costado -->
 <!-- <hr color="#eef1f5" /> -->
   <section class="row">
@@ -134,11 +134,10 @@
   <!-- Hasta aquí las maderas -->
 </main>
 <!--FIN CONTAINER DE BOOTSTRAP -->
+<footer>
+  <hr color="#eef1f5" />
+  <p class="piedepagina">© Copyright Marc Woods</p>
+</footer>
     <script src="./js/bootstrap.bundle.js"></script>
   </body>
-
-  <footer>
-    <hr color="#eef1f5" />
-    <p class="piedepagina">© Copyright Marc Woods</p>
-  </footer>
 </html>

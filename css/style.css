@@ -10,6 +10,12 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+header {
+
+  position: sticky;
+  top: 0;
+
+}
 h1 {
   font-size: 26px;
   font-weight: bolder;
@@ -83,5 +89,96 @@ a {
   height: 140px;
   width: 400px;
 }
+/*media queries*/
 
+/*desktop*/
+@media (min-width: 768px) {
+
+  h1 {
+    font-size: 26px;
+    font-weight: bolder;
+    color: black;
+  }
+  .titulo1 {
+    font-size: 26px;
+    font-weight: bolder;
+    color: black;
+  }
+  
+  .titulo2 {
+    font-size: 22px;
+    font-weight: lighter;
+    color: black;
+  }
+  .textoimportante {
+    font-size: 20px;
+    font-weight:lighter;
+    color: black;
+  }
+  .textosimple {
+    font-size: 18px;
+    font-weight: lighter;
+    color: black;
+  }
+}
+/*Tablet*/
+@media (min-width: 361px) and (max-width: 768px) {
+
+  h1 {
+    font-size: 24px;
+    font-weight: bolder;
+    color: black;
+  }
+  .titulo1 {
+    font-size: 24px;
+    font-weight: bolder;
+    color: black;
+  }
+  
+  .titulo2 {
+    font-size: 20px;
+    font-weight: lighter;
+    color: black;
+  }
+  .textoimportante {
+    font-size: 18px;
+    font-weight:lighter;
+    color: black;
+  }
+  .textosimple {
+    font-size: 16px;
+    font-weight: lighter;
+    color: black;
+  }
+}
+/*celulares*/
+@media (max-width: 360px) {
+
+  h1 {
+    font-size: 22px;
+    font-weight: bolder;
+    color: black;
+  }
+  .titulo1 {
+    font-size: 22px;
+    font-weight: bolder;
+    color: black;
+  }
+  
+  .titulo2 {
+    font-size: 18px;
+    font-weight: lighter;
+    color: black;
+  }
+  .textoimportante {
+    font-size: 16px;
+    font-weight:lighter;
+    color: black;
+  }
+  .textosimple {
+    font-size: 12px;
+    font-weight: lighter;
+    color: black;
+  }
+}
 /*# sourceMappingURL=style.css.map */
