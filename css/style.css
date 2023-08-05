@@ -160,23 +160,23 @@ a {
     color: black;
   }
   .titulo1 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bolder;
     color: black;
   }
   
   .titulo2 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bolder;
     color: black;
   }
   .textoimportante {
-    font-size: 14px;
+    font-size: 12px;
     font-weight:lighter;
     color: black;
   }
   .textosimple {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: lighter;
     color: black;
   }
