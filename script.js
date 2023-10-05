@@ -92,8 +92,15 @@ function agregarAlCarrito(productos, carrito, e) {
     productoBuscado.stock--
     //guardo el carrito el el local storage
     localStorage.setItem("carritoMarcWoodds",JSON.stringify(carrito))
+    //alert("Se agregó producto al carrito")
+        Swal.fire({
+      //position: 'top-end',
+      icon: 'success',
+      title: 'Tabla agregada al carrito',
+      showConfirmButton: false,
+      timer: 1500
+    })
 
-    alert("Se agregó producto al carrito")
   } else {
     alert("No hay más stock del producto seleccionado")
   }
