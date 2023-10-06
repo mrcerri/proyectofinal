@@ -93,14 +93,23 @@ function agregarAlCarrito(productos, carrito, e) {
     //guardo el carrito el el local storage
     localStorage.setItem("carritoMarcWoodds",JSON.stringify(carrito))
     //alert("Se agregó producto al carrito")
-        Swal.fire({
-      //position: 'top-end',
+       /* Swal.fire({
       icon: 'success',
       title: 'Tabla agregada al carrito',
       showConfirmButton: false,
       timer: 1500
+    })*/
+    Swal.fire({
+      title: 'Tabla agregada al carrito!',
+      text: `Modelo: ${productoBuscado.nombre}, $${productoBuscado.precio}.-`,
+      imageUrl: `./media/tablas/${productoBuscado.rutaImagen}`,
+      imageWidth: 400,
+      imageHeight: 200,
+      //imageAlt: `Tabla modelo: ${productoBuscado.nombre}`,
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 2000
     })
-
   } else {
     alert("No hay más stock del producto seleccionado")
   }
