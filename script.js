@@ -49,9 +49,9 @@ function renderizarProductos(productos, carrito) {
     let tarjeta = document.createElement("div")
     tarjeta.className = "col-lg-4 col-md-6 col-sm-12"
     tarjeta.innerHTML = `
-  <a href=./pages/tablas.html#${producto.item}>
+  <p >
       <img src=./media/tablas/${producto.rutaImagen} alt=${producto.nombre} class="img-fluid" />
-    </a>
+    </p>
       <p class=titulo2>Modelo ${producto.nombre}</p>
       <p class=textosimple>Tamaño: ${producto.tamaño}</p>
       <p class=titulo1>$ ${producto.precio}.-</p>
@@ -81,6 +81,7 @@ function agregarAlCarrito(productos, carrito, e) {
         productoEnCarrito.unidades * productoEnCarrito.precioUnitario
     } else {
       carrito.push({
+        rutaImagen: productoBuscado.rutaImagen,
         id: productoBuscado.id,
         nombre: productoBuscado.nombre,
         precioUnitario: productoBuscado.precio,
@@ -88,27 +89,27 @@ function agregarAlCarrito(productos, carrito, e) {
         subtotal: productoBuscado.precio,
       })
     }
-    
+
     productoBuscado.stock--
     //guardo el carrito el el local storage
-    localStorage.setItem("carritoMarcWoodds",JSON.stringify(carrito))
+    localStorage.setItem("carritoMarcWoodds", JSON.stringify(carrito))
     //alert("Se agregó producto al carrito")
-       /* Swal.fire({
+    /* Swal.fire({
       icon: 'success',
       title: 'Tabla agregada al carrito',
       showConfirmButton: false,
       timer: 1500
     })*/
     Swal.fire({
-      title: 'Tabla agregada al carrito!',
+      title: "Tabla agregada al carrito!",
       text: `Modelo: ${productoBuscado.nombre}, $${productoBuscado.precio}.-`,
       imageUrl: `./media/tablas/${productoBuscado.rutaImagen}`,
       imageWidth: 400,
       imageHeight: 200,
       //imageAlt: `Tabla modelo: ${productoBuscado.nombre}`,
-      icon: 'success',
+      icon: "success",
       showConfirmButton: false,
-      timer: 2000
+      timer: 2000,
     })
   } else {
     alert("No hay más stock del producto seleccionado")
@@ -124,16 +125,15 @@ function renderizarCarrito(productoEnCarrito) {
   productoEnCarrito.forEach((producto) => {
     let tarjetaProdCarrito = document.createElement("div")
     tarjetaProdCarrito.innerHTML = `
-      <p >Modelo:  ${producto.nombre}</p>
-      <p >Cantidad: ${producto.unidades}</p>
-      <p >Precio Unitario: $ ${producto.precioUnitario}.-</p>
-      <p >Sub Total: $ ${producto.subtotal}.-</p>
+    <p ><img src=./media/tablas/${producto.rutaImagen} class="img-fluid" width=200/></p>
+      <p>Modelo:  ${producto.nombre}</p>
+      <p>Cantidad: ${producto.unidades}</p>
+      <p>Precio Unitario: $ ${producto.precioUnitario}.-</p>
+      <p>Sub Total: $ ${producto.subtotal}.-</p>
       <hr color="#eef1f5" />
     `
     divCarrito.appendChild(tarjetaProdCarrito)
   })
-//let carritoJson = JSON.stringify(carrito)
-//localStorage.setItem("carritoMarcWoodds",carritoJson)
 }
 
 let botonVerOcultar = document.getElementById("idBotonVerOcultarCarrito")
@@ -149,7 +149,10 @@ let botonVaciarCarrito = document.getElementById("idBotonVaciarCarrito")
 botonVaciarCarrito.addEventListener("click", vaciarCarrito)
 
 function vaciarCarrito() {
+  let carrito = document.getElementById("carrito")
+  carrito.innerHTML = ""
+  carrito.classList.add ("oculta")
+  contenedorProductos.classList.remove ("oculta")
   localStorage.removeItem("carritoMarcWoodds")
-  carrito=[]
-  renderizarCarrito(carrito)
+
 }

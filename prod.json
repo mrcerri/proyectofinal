@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ladrillos",
+    "categoria": "End Grain",
+    "stock": 5,
+    "precio": 25000,
+    "tamaño": "30 cm x 45 cm",
+    "rutaImagen": "ladrillos3.jpg",
+    "item": "ladrillos"
+  },
+  {
+    "id": 2,
+    "nombre": "Cuadros",
+    "categoria": "End Grain",
+    "stock": 5,
+    "precio": 23000,
+    "tamaño": "30 cm x 45 cm",
+    "rutaImagen": "cuadros3.jpg",
+    "item": "cuadros"
+  },
+  {
+    "id": 3,
+    "nombre": "Gaucha",
+    "categoria": "Edge Grain",
+    "stock": 5,
+    "precio": 20000,
+    "tamaño": "30 cm x 45 cm",
+    "rutaImagen": "guarda3.jpg",
+    "item": "cuadros"
+  }
+]
