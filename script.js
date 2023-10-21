@@ -120,11 +120,12 @@ function agregarAlCarrito(productos, carrito, e) {
   renderizarCarrito(carrito)
 }
 function renderizarCarrito(productoEnCarrito) {
-  let divCarrito = document.getElementById("carrito") //aca está el div que creé en el index.html
-  divCarrito.innerHTML = ""
-  productoEnCarrito.forEach((producto) => {
-    let tarjetaProdCarrito = document.createElement("div")
-    tarjetaProdCarrito.innerHTML = `
+  if (productoEnCarrito.length > 0) {
+    let divCarrito = document.getElementById("carrito") //aca está el div que creé en el index.html
+    divCarrito.innerHTML = ""
+    productoEnCarrito.forEach((producto) => {
+      let tarjetaProdCarrito = document.createElement("div")
+      tarjetaProdCarrito.innerHTML = `
     <p ><img src=./media/tablas/${producto.rutaImagen} class="img-fluid" width=200/></p>
       <p>Modelo:  ${producto.nombre}</p>
       <p>Cantidad: ${producto.unidades}</p>
@@ -132,8 +133,16 @@ function renderizarCarrito(productoEnCarrito) {
       <p>Sub Total: $ ${producto.subtotal}.-</p>
       <hr color="#eef1f5" />
     `
-    divCarrito.appendChild(tarjetaProdCarrito)
-  })
+      divCarrito.appendChild(tarjetaProdCarrito)
+    })
+    let botonFc = document.createElement("button")
+    botonFc.classList.add("btn")
+    botonFc.classList.add("btn-outline-dark")
+    botonFc.classList.add("btn-lg")
+    botonFc.innerHTML = "Finalizar compra"
+    botonFc.addEventListener("click", vaciarCarrito)
+    divCarrito.appendChild(botonFc)
+  }
 }
 
 let botonVerOcultar = document.getElementById("idBotonVerOcultarCarrito")
@@ -149,10 +158,15 @@ let botonVaciarCarrito = document.getElementById("idBotonVaciarCarrito")
 botonVaciarCarrito.addEventListener("click", vaciarCarrito)
 
 function vaciarCarrito() {
+  Swal.fire({
+    title: "Gracias por su compra",
+    icon: "info",
+    showConfirmButton: false,
+    timer: 2000,
+  })
   let carrito = document.getElementById("carrito")
   carrito.innerHTML = ""
-  carrito.classList.add ("oculta")
-  contenedorProductos.classList.remove ("oculta")
+  carrito.classList.add("oculta")
+  contenedorProductos.classList.remove("oculta")
   localStorage.removeItem("carritoMarcWoodds")
-
 }
