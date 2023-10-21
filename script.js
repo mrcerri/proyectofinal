@@ -1,46 +1,18 @@
-let productos = [
-  {
-    id: 1,
-    nombre: "Ladrillos",
-    categoria: "End Grain",
-    stock: 5,
-    precio: 25000,
-    tamaño: "30 cm x 45 cm",
-    rutaImagen: "ladrillos3.jpg",
-    item: "ladrillos",
-  },
-  {
-    id: 2,
-    nombre: "Cuadros",
-    categoria: "End Grain",
-    stock: 5,
-    precio: 23000,
-    tamaño: "30 cm x 45 cm",
-    rutaImagen: "cuadros3.jpg",
-    item: "cuadros",
-  },
-  {
-    id: 3,
-    nombre: "Gaucha",
-    categoria: "Edge Grain",
-    stock: 5,
-    precio: 20000,
-    tamaño: "30 cm x 45 cm",
-    rutaImagen: "guarda3.jpg",
-    item: "cuadros",
-  },
-]
+fetch("./prod.json") // acá el fetch me retorna un objeto Response
+  .then((respuesta) => respuesta.json()) // este metodo pasa de Response a JS
+  .then((productos) => principal(productos))
+  .catch((error) => console.log(error))
 
-let carrito = []
-//Recupero el carrito almacenado en el storage
-let stringCarritoRecuperado = localStorage.getItem("carritoMarcWoodds")
-if (stringCarritoRecuperado) {
-  carrito = JSON.parse(stringCarritoRecuperado)
+function principal(productos) {
+  let CarritoRecuperado = localStorage.getItem("carritoMarcWoodds")
+  let carrito = CarritoRecuperado ? JSON.parse(CarritoRecuperado) : []
+
+  renderizarCarrito(carrito)
+  renderizarProductos(productos, carrito)
+
+  let botonVerOcultar = document.getElementById("idBotonVerOcultarCarrito")
+  botonVerOcultar.addEventListener("click", verOcultarCarrito)
 }
-
-renderizarCarrito(carrito)
-
-renderizarProductos(productos, carrito)
 
 function renderizarProductos(productos, carrito) {
   let contenedor = document.getElementById("contenedorProductos")
@@ -65,7 +37,6 @@ function renderizarProductos(productos, carrito) {
     )
   })
 }
-
 function agregarAlCarrito(productos, carrito, e) {
   let productoBuscado = productos.find(
     (producto) => producto.id === Number(e.target.id)
@@ -93,20 +64,13 @@ function agregarAlCarrito(productos, carrito, e) {
     productoBuscado.stock--
     //guardo el carrito el el local storage
     localStorage.setItem("carritoMarcWoodds", JSON.stringify(carrito))
-    //alert("Se agregó producto al carrito")
-    /* Swal.fire({
-      icon: 'success',
-      title: 'Tabla agregada al carrito',
-      showConfirmButton: false,
-      timer: 1500
-    })*/
+
     Swal.fire({
       title: "Tabla agregada al carrito!",
       text: `Modelo: ${productoBuscado.nombre}, $${productoBuscado.precio}.-`,
       imageUrl: `./media/tablas/${productoBuscado.rutaImagen}`,
       imageWidth: 400,
       imageHeight: 200,
-      //imageAlt: `Tabla modelo: ${productoBuscado.nombre}`,
       icon: "success",
       showConfirmButton: false,
       timer: 2000,
@@ -114,8 +78,6 @@ function agregarAlCarrito(productos, carrito, e) {
   } else {
     alert("No hay más stock del producto seleccionado")
   }
-
-  //console.log(carrito)
 
   renderizarCarrito(carrito)
 }
@@ -144,19 +106,11 @@ function renderizarCarrito(productoEnCarrito) {
     divCarrito.appendChild(botonFc)
   }
 }
-
-let botonVerOcultar = document.getElementById("idBotonVerOcultarCarrito")
-botonVerOcultar.addEventListener("click", verOcultarCarrito)
-
 function verOcultarCarrito() {
   let carrito = document.getElementById("carrito")
   carrito.classList.toggle("oculta")
   contenedorProductos.classList.toggle("oculta")
 }
-
-let botonVaciarCarrito = document.getElementById("idBotonVaciarCarrito")
-botonVaciarCarrito.addEventListener("click", vaciarCarrito)
-
 function vaciarCarrito() {
   Swal.fire({
     title: "Gracias por su compra",
